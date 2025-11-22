@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fontes carregadas via next/font/google em layout.tsx */
+/* IMPACTO 6: German Power - Staatliches, Rajdhani, Source Serif 4 */
+
+:root {
+  --font-display: 'Staatliches', system-ui, sans-serif;      /* Headlines - German Power */
+  --font-sans: 'Rajdhani', system-ui, sans-serif;            /* Body/Buttons */
+  --font-serif: 'Source Serif Pro', Georgia, serif;          /* Destaques */
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-black text-white font-sans antialiased;
+    @apply min-h-screen;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    position: relative;
+  }
+
+  /* Global Noise/Grain Texture */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.02;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Remove default cursor para custom cursor */
+  body.custom-cursor {
+    cursor: none;
+  }
+
+  body.custom-cursor * {
+    cursor: none !important;
+  }
+
+  /* Scrollbar customizada (webkit) */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/30;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-white text-black;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* GPU Acceleration */
+  .gpu-accelerated {
+    @apply transform-gpu will-change-transform;
+  }
+
+  /* Glow effect utility */
+  .glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
+                0 0 40px rgba(255, 255, 255, 0.05);
+  }
+
+  .glow-strong {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2),
+                0 0 60px rgba(255, 255, 255, 0.1),
+                0 0 90px rgba(255, 255, 255, 0.05);
+  }
+
+  /* Backdrop blur utilities */
+  .backdrop-blur-glass {
+    @apply backdrop-blur-md bg-white/5;
+  }
+
+  /* Border glow */
+  .border-glow {
+    @apply border border-white/10;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+
+  .border-glow-hover:hover {
+    @apply border-white/30;
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1),
+                0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Grid Pattern Utility */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Dot Pattern Utility */
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Container customizado */
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-white/60;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.6, 0.01, 0.05, 0.95);
+  }
+}
+
+/* Componentes customizados */
+@layer components {
+  /* Button base */
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium;
+    @apply transition-all duration-300;
+    @apply gpu-accelerated;
+  }
+
+  .btn-primary {
+    @apply btn bg-white text-black;
+    @apply hover:bg-white/90 hover:scale-105;
+    @apply active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply btn border border-white/20 text-white;
+    @apply hover:bg-white/10 hover:border-white/40;
+  }
+
+  .btn-ghost {
+    @apply btn text-white;
+    @apply hover:bg-white/5;
+  }
+
+  /* Card base */
+  .card {
+    @apply rounded-xl border border-white/10;
+    @apply bg-black-light backdrop-blur-md;
+    @apply transition-smooth;
+  }
+
+  .card-hover {
+    @apply hover:border-white/30 hover:glow;
+    @apply hover:scale-[1.02];
+  }
+
+  /* Section base */
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-title {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-serif font-bold;
+    @apply mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg sm:text-xl text-white/70;
+    @apply max-w-3xl mx-auto;
+  }
+}
+
+/* Animações personalizadas */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-white/5 rounded;
+}
+
+/* Focus visible (acessibilidade) */
+*:focus-visible {
+  @apply outline-none ring-2 ring-white/50 ring-offset-2 ring-offset-black;
+}
+
+/* Prevent FOUC - Removed as it was causing visibility issues */
+/* Fonts are loaded via next/font which handles FOUC automatically */
+
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+}
