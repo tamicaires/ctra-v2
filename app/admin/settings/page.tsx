@@ -5,7 +5,7 @@ import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { DashboardLayout } from '@/components/admin/DashboardLayout';
 import { motion } from 'framer-motion';
 import {
-  Settings,
+  Settings as SettingsIcon,
   User,
   Bell,
   Globe,

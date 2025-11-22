@@ -8,15 +8,17 @@ import { getModalityBySlug } from '@/lib/data/modalities';
 import Container from '@/components/ui/Container';
 import Button from '@/components/ui/Button';
 import WeeklyCalendar from '@/components/modalities/WeeklyCalendar';
+import { use } from 'react';
 
 interface ModalityPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function ModalityPage({ params }: ModalityPageProps) {
-  const modality = getModalityBySlug(params.slug);
+  const { slug } = use(params);
+  const modality = getModalityBySlug(slug);
 
   if (!modality) {
     notFound();
