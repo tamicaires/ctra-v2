@@ -85,7 +85,7 @@ function SettingsPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
-            <Settings className="w-8 h-8 text-white/60" />
+            <Settings  />
             <h1 className="text-3xl lg:text-4xl font-display font-bold">
               Configurações
             </h1>
@@ -346,7 +346,7 @@ function SettingsPage() {
 
                 <label className="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all">
                   <div className="flex items-center gap-3">
-                    <Settings className="w-5 h-5 text-white/60" />
+                    <Settings />
                     <div>
                       <p className="font-sans font-semibold text-sm">Atualizações do Sistema</p>
                       <p className="text-xs text-white/50">Notificar sobre updates</p>
