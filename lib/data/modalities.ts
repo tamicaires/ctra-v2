@@ -118,7 +118,7 @@ export const modalities: Modality[] = [
         dayShort: 'SEX',
         slots: [
           { time: '06:00 - 07:00', instructor: 'Rodrigo Argentino', level: 'Todos', available: 8, total: 15 },
-          { time: '18:00 - 19:30', instructor: 'Prof. Carlos', level: 'Sparring', available: 15, total: 20 },
+          { time: '18:00 - 19:30', instructor: 'Prof. Carlos', level: 'Todos', available: 15, total: 20 },
         ]
       },
       {
@@ -229,7 +229,7 @@ export const modalities: Modality[] = [
         dayShort: 'SEX',
         slots: [
           { time: '07:00 - 08:00', instructor: 'Prof. Marcos', level: 'Todos', available: 15, total: 20 },
-          { time: '19:00 - 20:30', instructor: 'Rodrigo Argentino', level: 'Sparring', available: 12, total: 15 },
+          { time: '19:00 - 20:30', instructor: 'Rodrigo Argentino', level: 'Todos', available: 12, total: 15 },
         ]
       },
       {
@@ -339,7 +339,7 @@ export const modalities: Modality[] = [
         day: 'Sexta-feira',
         dayShort: 'SEX',
         slots: [
-          { time: '08:00 - 09:30', instructor: 'Prof. Lucas', level: 'Sparring', available: 14, total: 16 },
+          { time: '08:00 - 09:30', instructor: 'Prof. Lucas', level: 'Todos', available: 14, total: 16 },
         ]
       },
       {
@@ -445,7 +445,7 @@ export const modalities: Modality[] = [
         day: 'Sexta-feira',
         dayShort: 'SEX',
         slots: [
-          { time: '20:00 - 22:00', instructor: 'Rodrigo Argentino', level: 'Sparring', available: 10, total: 12 },
+          { time: '20:00 - 22:00', instructor: 'Rodrigo Argentino', level: 'Todos', available: 10, total: 12 },
         ]
       },
       {
